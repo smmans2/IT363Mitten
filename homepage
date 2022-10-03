@@ -8,7 +8,9 @@
 		<meta charset="utf-8">
 		<title>Mitten Distribution</title>
 		<style type ="text/css">
-		
+		.box {
+			line-height: 2;
+		}
 		*
 		{
 			margin:0px;
@@ -117,7 +119,7 @@
 		<p>Mitten Distribution</p>
 		<div class="image">
 		
-		<p><img src="Final Logo_Mitten.png" alt="Mitten Logo" width="200" height="200">
+		<p><img src="MittenUpdatedLogo.png" alt="Mitten Logo" width="200" height="200">
 	  </div>
 	  </div>
 	  
