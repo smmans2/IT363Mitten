@@ -44,22 +44,38 @@
 			color: white;
 			height: 1500px;
 		}
-		.contactmessage 
-		{
-			padding: 4rem;
-			background-color: lightgray;
-			font: Impact, fantasy;
-			font-weight: 600;
-			text-align: center;
-			font-size: 40px;
-			
+		* {box-sizing: border-box;}
+
+		input[type=text], select, textarea {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
 		}
+
+		input[type=submit] {
+			background-color: #18453B;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+
+		.container {
 		
-		.quote {
-			padding: 2rem;
-			background-color: lightgray;
-			text-align: center;
-			
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 50px;
+			}
 		}
 	</style> 
 		
@@ -71,12 +87,12 @@
        <div class="navigation">
             <a class="active" href="homepage.html">Home</a>
             <a href="Contact.html">Contact</a>
-            <a href="Gallery.html">Gallery</a>
+            <a href="Gallery.html">Products</a>
             <a href="Survey.html">Survey</a>
       </div>
 	  
 	  <div class="contactmessage">
-	  <p>Contact Us</p>
+<!--	  <p>Contact Us</p>
 	  </div>
 	  
 	  <div class="quote">
@@ -96,4 +112,36 @@
 		<label for="info">Usefull information:</label><br>
 		<input type="text" id="info" name="info"><br>
 		</form>
-		</div>
+		</div> -->
+		<body>
+
+		<h3>Contact Form</h3>
+
+		<div class="container">
+			<form action="/action_page.php">
+				<label for="fname">First Name</label>
+				<input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+				<label for="lname">Last Name</label>
+				<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+				
+				<label for="lname">Email</label>
+				<input type="text" id="email" name="email" placeholder="Your email..">
+				
+				<label for="lname">Phone Number</label>
+				<input type="text" id="pnumber" name="phonenumber" placeholder="Your phone number..">
+				
+				<label for="lname">Types of services needed:</label>
+				<input type="text" id="services" name="services" placeholder="Services..">
+
+			
+
+				<label for="subject">Usefull Information</label>
+				<textarea id="subject" name="subject" placeholder="Anything we should know" style="height:200px"></textarea>
+
+			<input type="submit" value="Submit">
+			</form>
+</div>
+
+</body>
+</html>
