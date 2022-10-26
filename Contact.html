@@ -125,5 +125,38 @@
 			</fieldset>
 </div>
 
+
+
 </body>
 </html>
+
+
+
+
+<?php
+// database connection code
+// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
+
+$con = mysqli_connect('localhost', 'root', '','db_connection');
+
+// get the post records
+$txtfname = $_POST['txtfname'];
+$txtlname = $_POST['txtlname'];
+$txtemail = $_POST['txtemail'];
+$txtpnumber = $_POST['txtpnumber'];
+$txtservices = $_POST['txtservices'];
+$txtsubject = $_POST['txtsubject'];
+
+// database insert SQL code
+$sql = "INSERT INTO `product_quote` (`quoteFirstName`, `quoteLastName`, `quoteEmail`, `quotePhoneNumber`, `quoteTypeOfServices`, `quoteFurtherInformation`) 
+VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtpnumber', '$txtservices, '$txtsubject');"
+
+// insert in database 
+$rs = mysqli_query($con, $sql);
+
+if($rs)
+{
+	echo "Contact Records Inserted";
+}
+
+?>
