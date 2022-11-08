@@ -105,7 +105,7 @@
       </div>
 	  
 	  <div class="message">
-		<h2>Selling solutions that will work for you.</h2>
+		<h2>Mitten Distribution </h2>
 		
 	  <div class="message2">
 		<p>Better Prices</p>
@@ -114,7 +114,7 @@
 		
 		<p>Better Solutions</p>
 		
-		<p>Mitten Distribution</p>
+		<p>Selling solutions that will work for you.</p>
 		<div class="image">
 		
 		<p><img src="\Mitten\fuck.png" alt="Mitten Logo" width="200" height="200">
