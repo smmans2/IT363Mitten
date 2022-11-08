@@ -79,9 +79,9 @@
 <body>
 		<div class="navigation">
             <a class="active" href="homepage.php">Home</a>
-            <a href="Contact.php">Contact</a>
-            <a href="Gallery.php">Products</a>
-            <a href="Survey.php">Survey</a>
+            <a href="Contact.php">Contact Us</a>
+            <a href="Products.php">Products</a>
+            <a href="Review.php">Reviews</a>
       	</div>
 <?php
 //include_once '1db_connection.php';
