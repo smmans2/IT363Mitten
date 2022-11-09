@@ -36,8 +36,7 @@
 			color: black;
 		}
 		
-		.naviagation a:active 
-        {
+		.naviagation a:active {
 			background-color: #04AA6D;
 			color: white;
 			height: 1500px;
@@ -45,8 +44,7 @@
 		
 		* {box-sizing: border-box;}
 
-		input[type=text], select, textarea 
-        {
+		input[type=text], select, textarea {
 			width: 100%;
 			padding: 12px;
 			border: 1px solid #ccc;
@@ -57,8 +55,7 @@
 			resize: vertical;
 		}
 
-		input[type=submit] 
-        {
+		input[type=submit] {
 			background-color: #18453B;
 			color: white;
 			padding: 12px 20px;
@@ -67,29 +64,26 @@
 			cursor: pointer;
 		}
 
-		input[type=submit]:hover 
-        {
+		input[type=submit]:hover {
 			background-color: #45a049;
 		}
 
-		.container 
-        {
-	        border-radius: 5px;
+		.container {
+		
+			border-radius: 5px;
 			background-color: #f2f2f2;
 			padding: 50px;
-		}
+			}
 		
 		
-		.commentsection 
-        {
+		.commentsection {
 			font-size: 30px;
 			padding: 15px;
 			background-color: lightgray;
 			text-align: center;
 		}
 		
-		.commentcontent 
-        {
+		.commentcontent {
 			font-size: 20px;
 			padding: 15px;
 			background-color: lightgray;
@@ -97,50 +91,21 @@
 			font: Impact, fantasy;
 			width: 100%;
 		}
-        .card 
-        {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            margin: auto;
-            text-align: center;
-            font-family: arial;
-        }
-
-        .price 
-        {
-            color: grey;
-            font-size: 22px;
-        }
-
-        .card button 
-        {
-            border: none;
-             outline: 0;
-            padding: 12px;
-            color: white;
-            background-color: #000;
-            text-align: center;
-            cursor: pointer;
-            width: 100%;
-             font-size: 18px;
-        }
-
-        .card button:hover 
-        {
-            opacity: 0.7;
-        }
 		
 			</style> 
 		
 	</head>
 
 <body>
-		<div class="navigation">
-            <a class="active" href="homepage.php">Home</a>
-            <a href="Contact.php">Contact Us</a>
-            <a href="Products.php">Products</a>
-            <a href="Review.php">Reviews</a>
-      	</div>
+
+ 
+<div class="navigation">
+            <a href="adminAdd.php">Add Products</a>
+            <a href="adminRemove.php">Remove Products</a>
+			<a href="adminUpdate.php">Update Products</a>
+            <a href="adminRView.php">View Reviews</a>
+            <a href="adminOView.php">View Orders</a>
+      </div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
@@ -156,7 +121,6 @@ $sql = "SELECT * FROM products";
         {
             ?>
             <div class="card">
-
             <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
             <h2><?php echo $row["productDescription"]?></h2>
 
@@ -168,5 +132,4 @@ $sql = "SELECT * FROM products";
     }
 
 ?>
-</body>
-</html>
+	  

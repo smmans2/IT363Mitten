@@ -71,15 +71,27 @@
         {
 			background-color: #45a049;
 		}
+        div.gallery {
+        margin: 300px;
+        border: 100px solid #ccc;
+        float: left;
+        width: 180px;
+        }
 
-		.container 
-        {
-	        border-radius: 5px;
-			background-color: #f2f2f2;
-			padding: 50px;
-		}
-		
-		
+        div.gallery:hover {
+                border: 1px solid #777;
+        }
+
+        div.gallery img {
+        width: 250%;
+        height: auto;
+        }
+
+        div.desc {
+        padding: 15px;
+        text-align: center;
+        }
+
 		.commentsection 
         {
 			font-size: 30px;
@@ -135,38 +147,39 @@
 	</head>
 
 <body>
-		<div class="navigation">
-            <a class="active" href="homepage.php">Home</a>
-            <a href="Contact.php">Contact Us</a>
-            <a href="Products.php">Products</a>
-            <a href="Review.php">Reviews</a>
-      	</div>
-<?php
-$conn = mysqli_connect("localhost", "admin", "admin","mitten");
-if (mysqli_connect_errno())
-{
-    echo "Connection Error" . mysqli_connect_error();
-}
-$sql = "SELECT * FROM products";
-    $result = mysqli_query($conn,$sql);
-    if($result->num_rows > 0)
-    {
-        
-        while($row = $result->fetch_assoc())
-        {
-            ?>
-            <div class="card">
 
-            <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
-            <h2><?php echo $row["productDescription"]?></h2>
+ 
+<div class="navigation">
+            <a href="adminAdd.php">Add Products</a>
+            <a href="adminRemove.php">Remove Products</a>
+			<a href="adminUpdate.php">Update Products</a>
+            <a href="adminRView.php">View Reviews</a>
+            <a href="adminOView.php">View Orders</a>
+</div>
+<div class="gallery">
+    <a target="_blank" href="AgContainer.png">
+      <img src="AgContainer.png" alt="Cinque Terre" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+    <a target="_blank" href="BulkBags.png">
+      <img src="BulkBags.png" alt="Cinque Terre" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+    <a target="_blank" href="IBCTotes.png">
+      <img src="IBCTotes.png" alt="Cinque Terre" width="600" height="400">
+    </a>
+<div class="desc">Add a description of the image here</div>
+</div>
+<div class="gallery">
+    <a target="_blank" href="MittenWoodenPallet.png">
+      <img src="MittenWoodenPallet.png" alt="Cinque Terre" width="600" height="400">
+    </a>
+<div class="desc">Add a description of the image here</div>
+</div>
 
-            <p><?php echo $row["productPrice"]?></p>
-            </div>
-            <?php
-        } 
-        
-    }
 
-?>
-</body>
-</html>
+
