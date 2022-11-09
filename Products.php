@@ -105,13 +105,11 @@
             text-align: center;
             font-family: arial;
         }
-
         .price 
         {
             color: grey;
             font-size: 22px;
         }
-
         .card button 
         {
             border: none;
@@ -156,11 +154,10 @@ $sql = "SELECT * FROM products";
         {
             ?>
             <div class="card">
-
             <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
             <h2><?php echo $row["productDescription"]?></h2>
 
-            <p><?php echo $row["productPrice"]?></p>
+            <p> class="price"><?php echo $row["productPrice"]?></p>
             </div>
             <?php
         } 
