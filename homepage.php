@@ -114,7 +114,7 @@
 		
 		<p>Better Solutions</p>
 		
-		<p>Selling solutions that will work for you.</p>
+		<p>Selling solutions that will work for you!</p>
 		<div class="image">
 		
 		<p><img src="\Mitten\fuck.png" alt="Mitten Logo" width="200" height="200">
