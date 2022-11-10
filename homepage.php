@@ -148,7 +148,7 @@
 		
 		<p>Better Solutions</p>
 		
-		<p>Selling solutions that will work for you.</p>
+		<p>Selling solutions that will work for you!</p>
 		<div class="image">
 		
 		

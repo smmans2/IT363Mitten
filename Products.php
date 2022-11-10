@@ -157,7 +157,7 @@ $sql = "SELECT * FROM products";
             <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
             <h2><?php echo $row["productDescription"]?></h2>
 
-            <p> class="price"><?php echo $row["productPrice"]?></p>
+            <p>class="price"><?php echo $row["productPrice"]?></p>
             </div>
             <?php
         } 

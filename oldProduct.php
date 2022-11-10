@@ -106,9 +106,8 @@ $sql = "SELECT * FROM products";
             </div>
             <?php
         } 
-        
+       
     }
-
 ?>
 </body>
 </html>

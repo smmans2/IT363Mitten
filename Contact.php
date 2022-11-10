@@ -128,9 +128,9 @@
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
-    echo "Fail lol" . mysqli_connect_error();
+    echo "Connection Error" . mysqli_connect_error();
 }
-echo "Good Job"."<br><br><br><br>";
+
 // get the post records
 
 $txtfname = $_REQUEST['fname'];
