@@ -15,6 +15,7 @@
 			padding:0px;
 			
 			
+			
 		}
 		.navigation
 		{
@@ -29,9 +30,9 @@
 			float: left;
 			color: #f2f2f2;
 			text-align: center;
-			padding: 14px 16px;
+			padding: 16px 24px;
 			text-decoration: none;
-			font-size: 19px;
+			font-size: 23px;
 		}
 		.navigation a:hover
 		{
@@ -39,18 +40,36 @@
 			color: black;
 		}
 		
-		.naviagation a:active {
+	.naviagation a:active {
 			background-color: #04AA6D;
 			color: white;
 			height: 1500px;
 		}
 		
+		html { 
+		background: url(warehouse1.png) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: pixelated;
+}
+	 
+		
 		.message 
 		{
-			padding: 2.5rem;
-			text-align: center;
+			padding-top: 8rem;
+			text-align: left;
 			font-size: 40px;
-			background-color: lightgray;
+			color: white;
+			font-family: Impact;
+			text-shadow: -1px 3px 2px #18453B;
+		
+		}
+		
+		.logo
+		{
+		padding-top:10rem;
+		padding-right: 2rem;
+		float: right;
 		}
 		
 		.image
@@ -60,35 +79,40 @@
 		
 		.message2
 		{
-			padding: 1.5rem;
-			font: Impact, fantasy;
+			padding-top: 4rem;
 			font-weight: 600;
-			text-align: center;
+			text-align: left;
 			font-size: 40px;
+			color: white;
 		
 		}
 		
+		
+		
 		#main-zone
 		{
-			padding: 4rem;
-			width: 100%;
+			padding-top: 3rem;
 			min-height: 400px;
-			font-size: 19px;
-			float: left;
+			font-size: 23px;
+			float: center;
+			background-color: white;
+			color: black;
+			text-shadow: none;
 			
 		}
 		
 		#main-zone .box
 		{
-			width: 30%;
+			padding-top: 1rem;
+			width: 100%;
 			min-height: 400px;
-			float: left;
-			font-size: 19px;
-			margin-left: 8%;
-			margin-right: 8%;
+			font-size: 25px;
+			text-align: center;
+			margin: auto;
 			
 			
 		}
+		
 
 		</style> 
 		
@@ -104,11 +128,21 @@
             <a href="Review.php">Reviews</a>
       </div>
 	  
+	   
+	   
+	   <div class="logo">
+		<img src="MD.png" alt="Mitten Logo" width="300" height="300"> 
+		</div>
+	  <div class="message2">
+	        
 	  <div class="message">
 		<h2>Mitten Distribution </h2>
 		
-	  <div class="message2">
-		<p>Better Prices</p>
+	 
+	       
+        
+		
+		<p>Better Prices  </p>
 		
 		<p>Better People</p>
 		
@@ -117,13 +151,15 @@
 		<p>Selling solutions that will work for you.</p>
 		<div class="image">
 		
-		<p><img src="\Mitten\fuck.png" alt="Mitten Logo" width="200" height="200">
+		
 	  </div>
 	  </div>
 	  
+	 
 
 	  <div id="main-zone">
 		<div class="box">
+		
 		<b>Who Are We?</b><br>Mitten Distribution is a family owned business that has been <br>
 		manufacturing and selling customer solutions since 2017. With <br>
 		our wide variety of products, Mitten Distribution continues to <br>
@@ -132,8 +168,16 @@
 		</div>
 		
 		<div class="box">
-		4751 3 Mile Road Northwest <br> Grand Rapids, MI 49534. Suite A. <br>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.2000661470374!2d-85.78714998692284!3d43.01612635641183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8819a5e091151bc1%3A0x270bea790a48c959!2s4751%203%20Mile%20Rd%20NW%2C%20Grand%20Rapids%2C%20MI%2049534!5e0!3m2!1sen!2sus!4v1664391037699!5m2!1sen!2sus" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<p>4751 3 Mile Road Northwest <br> Grand Rapids, MI 49534. Suite A. <br><p>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2033.2000661470374!2d-85.78714998692284!3d43.01612635641183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8819a5e091151bc1%3A0x270bea790a48c959!2s4751%203%20Mile%20Rd%20NW%2C%20Grand%20Rapids%2C%20MI%2049534!5e0!3m2!1sen!2sus!4v1664391037699!5m2!1sen!2sus" width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<h4>Hours</h4>
+		<p>Monday 09:00 am - 05:00 pm<br>
+		Tuesday 09:00 am - 05:00 pm<br>
+		Wednesday 09:00 am - 05:00 pm<br>
+		Thursday 09:00 am - 05:00 pm<br>
+		Friday 09:00 am - 05:00 pm<br>
+		Saturday 09:00 am - 05:00 pm<br>
+		Sunday Closed
 		</div>
    
    

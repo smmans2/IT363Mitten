@@ -28,7 +28,7 @@
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
-			font-size: 19px;
+			font-size: 23px;
 		}
 		.navigation a:hover
 		{

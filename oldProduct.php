@@ -26,9 +26,9 @@
 			float: left;
 			color: #f2f2f2;
 			text-align: center;
-			padding: 14px 16px;
+			padding: 16px 24px;;
 			text-decoration: none;
-			font-size: 19px;
+			font-size: 23px;
 		}
 		.navigation a:hover
 		{
