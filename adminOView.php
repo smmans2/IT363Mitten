@@ -69,7 +69,7 @@
 		}
 
 		.container {
-			box-shadow: 0 0 3px;
+		
 			border-radius: 5px;
 			background-color: #f2f2f2;
 			padding: 50px;
@@ -91,19 +91,6 @@
 			font: Impact, fantasy;
 			width: 100%;
 		}
-		.header {
-			
-			text-align: center;
-			height: 40px;
-			border-radius: 5px;
-			background-color: #f2f2f2;
-			padding: 50px;
-			margin-top: 18px;
-			margin-bottom: 18px;
-			font-size: 40px;
-			
-		}
-	
 		
 			</style> 
 		
@@ -112,25 +99,37 @@
 <body>
 
  
-       <div class="navigation">
+<div class="navigation">
             <a href="adminAdd.php">Add Products</a>
             <a href="adminRemove.php">Remove Products</a>
 			<a href="adminUpdate.php">Update Products</a>
             <a href="adminRView.php">View Reviews</a>
             <a href="adminOView.php">View Orders</a>
       </div>
+<?php
+$conn = mysqli_connect("localhost", "admin", "admin","mitten");
+if (mysqli_connect_errno())
+{
+    echo "Connection Error" . mysqli_connect_error();
+}
+$sql = "SELECT * FROM products";
+    $result = mysqli_query($conn,$sql);
+    if($result->num_rows > 0)
+    {
+        
+        while($row = $result->fetch_assoc())
+        {
+            ?>
+            <div class="card">
+            <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
+            <h2><?php echo $row["productDescription"]?></h2>
 
-	  <div class="header">
-		<a > Remove Product Listing</a>
-	</div>
-	  <div class="container">
-		<form name = "frmProduct" method="post" action = "survey.php">
-			<label for="productId">Product ID</label>
-			<input type="text" id="productId" name="ProductID" placeholder="Enter Product ID">
+            <p><?php echo $row["productPrice"]?></p>
+            </div>
+            <?php
+        } 
+        
+    }
 
-			<input type="submit" name="Submit" ad="Submit" value="Remove">
-		</form>
-		</fieldset>
-		
-</div>
+?>
 	  

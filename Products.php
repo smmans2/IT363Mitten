@@ -37,41 +37,97 @@
 		}
 		
 		.naviagation a:active 
-		{
+        {
 			background-color: #04AA6D;
 			color: white;
 			height: 1500px;
 		}
-		.card {
-			padding: 4rem;
-			box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-			max-width: 300px;
-			margin: auto;
-			text-align: center;
-			font: Impact, fantasy;
-			float: left;
-			
-			
-		}
+		
+		* {box-sizing: border-box;}
 
-
-
-		.card button 
-		{
-			border: none;
-			outline: 0;
-			padding: 12px;
-			color: white;
-			background-color: #000;
-			text-align: center;
-			cursor: pointer;
+		input[type=text], select, textarea 
+        {
 			width: 100%;
-			font-size: 18px;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
 		}
 
-		.card button:hover {
-			opacity: 0.7;
+		input[type=submit] 
+        {
+			background-color: #18453B;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
 		}
+
+		input[type=submit]:hover 
+        {
+			background-color: #45a049;
+		}
+
+		.container 
+        {
+	        border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 50px;
+		}
+		
+		
+		.commentsection 
+        {
+			font-size: 30px;
+			padding: 15px;
+			background-color: lightgray;
+			text-align: center;
+		}
+		
+		.commentcontent 
+        {
+			font-size: 20px;
+			padding: 15px;
+			background-color: lightgray;
+			float: left;
+			font: Impact, fantasy;
+			width: 100%;
+		}
+        .card 
+        {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+        }
+        .price 
+        {
+            color: grey;
+            font-size: 22px;
+        }
+        .card button 
+        {
+            border: none;
+             outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+             font-size: 18px;
+        }
+
+        .card button:hover 
+        {
+            opacity: 0.7;
+        }
+		
 			</style> 
 		
 	</head>
@@ -84,14 +140,11 @@
             <a href="Review.php">Reviews</a>
       	</div>
 <?php
-//include_once '1db_connection.php';
-
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
-    echo "Fail lol" . mysqli_connect_error();
+    echo "Connection Error" . mysqli_connect_error();
 }
-echo "Good Job"."<br><br><br><br>";
 $sql = "SELECT * FROM products";
     $result = mysqli_query($conn,$sql);
     if($result->num_rows > 0)
@@ -101,11 +154,10 @@ $sql = "SELECT * FROM products";
         {
             ?>
             <div class="card">
-
             <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
             <h2><?php echo $row["productDescription"]?></h2>
 
-            <p><?php echo $row["productPrice"]?></p>
+            <p> class="price"><?php echo $row["productPrice"]?></p>
             </div>
             <?php
         } 
