@@ -128,6 +128,7 @@
             opacity: 0.7;
         }
 		
+		
 			</style> 
 		
 	</head>
@@ -138,6 +139,8 @@
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
+			
+
       	</div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
