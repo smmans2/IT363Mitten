@@ -72,29 +72,31 @@
 			background-color: #45a049;
 		}
 
-		.container 
-        {
-	        border-radius: 5px;
-			padding: 50px;
+		#main-zone
+		{
+			padding-top: 100px;
+			width:100%;
+            height:1000px;
+			font-size: 23px;
+			float: center;
+			background-color: #CFDDC8;
+			color: black;
+			text-shadow: none;
 		}
-		
-		
-		.commentsection 
-        {
-			font-size: 30px;
-			padding: 15px;
-			background-color: lightgray;
+		#main-zone .productbox
+		{
+			padding-top: 60px;
+            padding-left:10%;
+            padding-right:10%;
+			width: 80%;
+			height:100%;
+			font-size: 50px;
+            border-style:solid;
 			text-align: center;
-		}
-		
-		.commentcontent 
-        {
-			font-size: 20px;
-			padding: 15px;
-			background-color: lightgray;
-			float: left;
-			font: Impact, fantasy;
-			width: 100%;
+			margin: auto;
+            
+			
+			
 		}
         .card 
         {
@@ -138,30 +140,41 @@
             <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
       	</div>
-<?php
-$conn = mysqli_connect("localhost", "admin", "admin","mitten");
-if (mysqli_connect_errno())
-{
-    echo "Connection Error" . mysqli_connect_error();
-}
-$sql = "SELECT * FROM products";
-    $result = mysqli_query($conn,$sql);
-    if($result->num_rows > 0)
-    {
-        
-        while($row = $result->fetch_assoc())
-        {
-            ?>
-            <div class="card">
-            <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
-            <h2><?php echo $row["productDescription"]?></h2>
-            <p>class="price"><?php echo $row["productPrice"]?></p>
-            </div>
+
+        <div id="main-zone">
+            <div class="productbox">
             <?php
-        } 
+                $conn = mysqli_connect("localhost", "admin", "admin","mitten");
+                if (mysqli_connect_errno())
+                {
+                    echo "Connection Error" . mysqli_connect_error();
+                }
+                $sql = "SELECT * FROM products";
+                $result = mysqli_query($conn,$sql);
+                if($result->num_rows > 0)
+                {
         
-    }
+                    while($row = $result->fetch_assoc())
+                    {
+                        ?>
+                        <div class="card">
+                        <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
+                        <h2><?php echo $row["productDescription"]?></h2>
+                        <p><?php echo $row["productPrice"]?></p>
+                        </div>
+                        <?php
+                    } 
+        
+                }
 
 ?>
+            </div>
+        </div>
+
+
+
+
+
+
 </body>
 </html>
