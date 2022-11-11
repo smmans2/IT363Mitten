@@ -166,26 +166,3 @@ $sql = "SELECT * FROM products";
 ?>
 </body>
 </html>
-
-
-
-#main-zone .addressbox
-		{
-			width: 100%;
-			min-height: 50px;
-			font-size: 25px;
-			text-align: ;
-			margin: left;
-			padding-bottom: 100px;
-			
-		}
-		#main-zone .hoursbox
-		{
-			width: 100%;
-			min-height: 50px;
-			font-size: 25px;
-			text-align: center;
-			margin: right;
-			padding-bottom: 100px;
-			
-		}

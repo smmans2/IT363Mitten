@@ -77,8 +77,11 @@
 			height:100%;
 			border-radius: 5px;
 			background-color: #CFDDC8;
-			padding: 50px;
+			padding-top:50px;
+			padding-bottom:100%;
 			text-align:center;
+			border-style:solid;
+			
 		}
 		.header
 		{
