@@ -26,7 +26,7 @@
 			float: left;
 			color: #f2f2f2;
 			text-align: center;
-			padding: 14px 16px;
+			padding: 16px 24px;
 			text-decoration: none;
 			font-size: 23px;
 		}
@@ -45,7 +45,7 @@
 		* {box-sizing: border-box;}
 
 		input[type=text], select, textarea {
-			width: 100%;
+			width: 50%;
 			padding: 12px;
 			border: 1px solid #ccc;
 			border-radius: 4px;
@@ -53,6 +53,7 @@
 			margin-top: 6px;
 			margin-bottom: 16px;
 			resize: vertical;
+			text-align:center;
 		}
 
 		input[type=submit] {
@@ -62,6 +63,7 @@
 			border: none;
 			border-radius: 4px;
 			cursor: pointer;
+			text-align:center;
 		}
 
 		input[type=submit]:hover {
@@ -71,26 +73,64 @@
 		.container {
 		
 			border-radius: 5px;
-			background-color: #f2f2f2;
+			background-color: #CFDDC8;
 			padding: 50px;
+			text-align:center;
 			}
 		
 		
 		.commentsection {
-			font-size: 30px;
-			padding: 15px;
-			background-color: lightgray;
+			font-size: 50px;
+			padding: 30px;
+			background-color: #CFDDC8;
 			text-align: center;
 		}
-		
-		.commentcontent {
-			font-size: 20px;
-			padding: 15px;
-			background-color: lightgray;
+
+		.commentname {
+			font-size: 35px;
+			padding: 10px;
+			background-color: #CFDDC8;
+			text-align: center;
 			float: left;
-			font: Impact, fantasy;
+			font-family: Impact;
 			width: 100%;
 		}
+
+		.commentcontent {
+			font-size: 25px;
+			padding: 15px;
+			background-color: #CFDDC8;
+			text-align: center;
+			float: left;
+			font-family: Impact;
+			width: 100%;
+		}
+		.header
+		{
+			padding-top: 20px;
+			width: 100%;
+			min-height: 50px;
+			background-color: #CFDDC8;
+			font-size: 50px;
+			font-family: Impact;
+			text-align: center;
+			margin: auto;
+			
+			
+		}
+		.subtext
+		{
+			padding-top: 10px;
+			padding-bottom:20px;
+			width: 100%;
+			font-size: 25px;
+			font-family: Impact;
+			text-align: center;
+			margin: auto;
+			
+			
+		}
+		
 		
 			</style> 
 		
@@ -103,7 +143,7 @@
             <a class="active" href="homepage.php">Home</a>
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php">Products</a>
-            <a href="Review.php">Reviews</a>
+			<a href="Review.php"style="background:white; font-size:23px;color: #18453B;">Reviews</a>
       </div>
 	  
 	 
@@ -111,22 +151,26 @@
 
 		<body>
 
-		<h3>Contact Form</h3>
-
-        <fieldset>  
+        <fieldset>
 		<div class="container">
+		<div class="header">
+			<b>Leave a review</b>
+		</div>
+		<div class="subtext">
+			<p>And read reviews from members of our community</p>
+		</div>  
 			<form name = "frmSurvey" method="post" action = "survey.php">
-				<label for="firstName">First Name</label>
-				<input type="text" id="firstName" name="firstname" placeholder="Your name">
+				<label for="firstName">First Name</label><br>
+				<input type="text" id="firstName" name="firstname" placeholder="First name"><br>
 
-				<label for="lastName">Last Name</label>
-				<input type="text" id="lastName" name="lastname" placeholder="Your last name">
+				<label for="lastName">Last Name</label><br>
+				<input type="text" id="lastName" name="lastname" placeholder="Last name"><br>
 				
-				<label for="email">"Email"</label>
-				<input type="text" id="email" name="email" placeholder="Your email">
+				<label for="email">Email</label><br>
+				<input type="text" id="email" name="email" placeholder="Email"><br>
 				
-				<label for="comment">Comment</label>
-				<textarea id="comment" name="comment" placeholder="Please leave your comment here" style="height:200px"></textarea>
+				<label for="comment">Comment</label><br>
+				<textarea id="comment" name="comment" placeholder="Please leave your comment here" style="height:200px"></textarea><br>
 
                 <input type="submit" name="Submit" ad="Submit" value="Submit">
 			</form>
@@ -141,36 +185,57 @@
 	<h4> Our Community </h4>
 </div>
 
-<div class = "commentcontent">
-
-	<h5> Amanda Smith <br></h5>
-		<p> I really loved the products that Mitten gave to us! <br> </p>
-		
-	<h5> Danny Hodge <br> </h5>
-		<p> The customer service that I recieved from Mitten blew my socks off.<br> </p>
-		
-	<h5> Andrew Franklin <br> </h5>
-		<p> The cannabis tray that Mitten provided me, revolutionized to my smoking experiences.<br> </p>
-
+<div class = "commentname">
+	<h5>Debi, Michigan<br></h5>	
 </div>
+<div class = "commentcontent">
+	<p>"Mitten had the best customer service I have ever experienced in this industry! Cole was awesome!"<br> </p>
+	
+</div>
+
+
+
+<div class = "commentname">
+	<h5>David, Indiana<br></h5>	
+</div>
+<div class = "commentcontent">
+	<p>"Chris was able to expedite delivery of my bulk containers and keep our production line up and running!"<br> </p>
+	
+</div>
+
+
+
+<div class = "commentname">
+	<h5>John, Michigan<br></h5>	
+</div>
+<div class = "commentcontent">
+	<p>"What a difference Ryan made when switching to a new vendor for Gaylord boxes. He was very informative during our decision making process."<br> </p>
+	
+</div>
+
+
+
+
+
+
+
+
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
-    echo "Fail lol" . mysqli_connect_error();
+    echo "Connection Failed" . mysqli_connect_error();
 }
-echo "Good Job"."<br><br><br><br>";
 // get the post records
-$txtfname = $_REQUEST['firstname'];
-$txtlname = $_REQUEST['lastname'];
-$txtemail = $_REQUEST['email'];
-$txtcomment = $_REQUEST['comment'];
-echo $txtfname, $txtlname;
+@$txtfname = $_REQUEST['firstname'];
+@$txtlname = $_REQUEST['lastname'];
+@$txtemail = $_REQUEST['email'];
+@$txtcomment = $_REQUEST['comment'];
 // database insert SQL code
 $sql = "INSERT INTO survey  VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtcomment')";
 if(mysqli_query($conn, $sql))
 {
-	echo "New Record Added";
+	echo "Submitted!";
 }
 else 
 {

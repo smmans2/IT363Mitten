@@ -100,10 +100,10 @@
         .card 
         {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 300px;
             margin: auto;
             text-align: center;
             font-family: arial;
+			width:20%
         }
         .price 
         {
@@ -136,7 +136,7 @@
 		<div class="navigation">
             <a class="active" href="homepage.php">Home</a>
             <a href="Contact.php">Contact Us</a>
-            <a href="Products.php">Products</a>
+            <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
       	</div>
 <?php
@@ -156,7 +156,6 @@ $sql = "SELECT * FROM products";
             <div class="card">
             <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
             <h2><?php echo $row["productDescription"]?></h2>
-
             <p>class="price"><?php echo $row["productPrice"]?></p>
             </div>
             <?php
@@ -167,3 +166,26 @@ $sql = "SELECT * FROM products";
 ?>
 </body>
 </html>
+
+
+
+#main-zone .addressbox
+		{
+			width: 100%;
+			min-height: 50px;
+			font-size: 25px;
+			text-align: ;
+			margin: left;
+			padding-bottom: 100px;
+			
+		}
+		#main-zone .hoursbox
+		{
+			width: 100%;
+			min-height: 50px;
+			font-size: 25px;
+			text-align: center;
+			margin: right;
+			padding-bottom: 100px;
+			
+		}
