@@ -88,6 +88,7 @@
 			padding-top: 60px;
             padding-left:10%;
             padding-right:10%;
+            padding-bottom:5%;
 			width: 80%;
 			height:100%;
 			font-size: 50px;
