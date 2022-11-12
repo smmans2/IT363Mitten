@@ -159,12 +159,12 @@
 		<div class="subtext">
 			<p>And read reviews from members of our community</p>
 		</div>  
-			<form name = "frmSurvey" method="post" action = "survey.php">
+			<form name = "frmSurvey" method="post" action = "review.php">
 				<label for="firstName">First Name</label><br>
-				<input type="text" id="firstName" name="firstname" placeholder="First name"><br>
+				<input type="text" id="firstName" name="firstName" placeholder="First name"><br>
 
 				<label for="lastName">Last Name</label><br>
-				<input type="text" id="lastName" name="lastname" placeholder="Last name"><br>
+				<input type="text" id="lastName" name="lastName" placeholder="Last name"><br>
 				
 				<label for="email">Email</label><br>
 				<input type="text" id="email" name="email" placeholder="Email"><br>
@@ -224,22 +224,25 @@
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
-    echo "Connection Failed" . mysqli_connect_error();
+    echo "Connection Error" . mysqli_connect_error();
 }
 // get the post records
-@$txtfname = $_REQUEST['firstname'];
-@$txtlname = $_REQUEST['lastname'];
+@$txtfname = $_REQUEST['firstName'];
+@$txtlname = $_REQUEST['lastName'];
 @$txtemail = $_REQUEST['email'];
 @$txtcomment = $_REQUEST['comment'];
 // database insert SQL code
 $sql = "INSERT INTO survey  VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtcomment')";
-if(mysqli_query($conn, $sql))
+if($txtfname != "")
 {
-	echo "Submitted!";
-}
-else 
-{
-	echo "Error";
+	if(mysqli_query($conn, $sql))
+	{
+		echo "Submitted!";
+	}
+	else 
+	{
+		echo "Error";
+	}
 }
 ?>
 </body>

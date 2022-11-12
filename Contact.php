@@ -157,7 +157,7 @@
 			<input type="submit" name="Submit" ad="Submit" value="Submit">
 			</form>
 			</fieldset>
-		
+	</div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
@@ -172,19 +172,20 @@ if (mysqli_connect_errno())
 @$txtservices = $_REQUEST['services'];
 @$txtsubject = $_REQUEST['subject'];
 // database insert SQL code
-$sql = "INSERT INTO contactInformation  VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtpnumber', '$txtservices', '$txtsubject')";
-if(mysqli_query($conn, $sql))
+$sql = "INSERT INTO contactinformation VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtpnumber', '$txtservices', '$txtsubject')";
+if($txtfname != "")
 {
-	echo "Submitted!";
-}
-else 
-{
-	echo "Error";
+	if(mysqli_query($conn, $sql))
+	{
+		echo "Submitted!";
+	}
+	else 
+	{
+		echo "Error";
+	}
 }
 ?>
 
-</div>
-	</div>
 
 </body>
 </html>

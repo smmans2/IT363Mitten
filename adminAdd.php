@@ -69,8 +69,7 @@
 		}
 
 		.container {
-			
-			box-shadow: 0 0 3px;
+		
 			border-radius: 5px;
 			background-color: #f2f2f2;
 			padding: 50px;
@@ -92,21 +91,6 @@
 			font: Impact, fantasy;
 			width: 100%;
 		}
-		.header {
-			
-			text-align: center;
-			height: 40px;
-			border-radius: 5px;
-			background-color: #f2f2f2;
-			padding: 50px;
-			margin-top: 18px;
-			margin-bottom: 18px;
-			font-size: 40px;
-		}
-
-		
-
-
 		
 			</style> 
 		
@@ -121,30 +105,62 @@
 		<a href="adminUpdate.php">Update Products</a>
 		<a href="adminRView.php">View Reviews</a>
 		<a href="adminOView.php">View Orders</a>
-	</div>
-	<div class="header">
-		<a > Add Product Listing</a>
-	</div>
+  </div>
+
+  <div class="contactmessage">
+
+	<body>
+
+	<h3>Contact Form</h3>
+	
+	<fieldset>
 	<div class="container">
-		<form name = "frmProduct" method="post" action = "survey.php">
-			<label for="productId">Product ID</label>
-			<input type="text" id="productId" name="ProductID" placeholder="Enter Product ID">
+		<form name = "addprod" method="post" action="adminadd.php">
+			<label for="idNumber">ID Number</label><br>
+			<input type="text" id="idNumber" name="idNumber" placeholder="Enter ID Number"><br>
 
-			<label for="pDescription">Product Description</label>
-			<input type="text" id="pDescription" name="prodDescription" placeholder="Enter Product Description">
+			<label for="prodPic">Product Picture</label><br>
+			<input type="text" id="prodPic" name="prodPic" placeholder="Ex: \ProductPics\woodPallet.png"><br>
+			
+			<label for="prodName">Product Name</label><br>
+			<input type="text" id="prodName" name="prodName" placeholder="Enter Product Name"><br>
+			
+			<label for="prodPrice">Product Price</label><br>
+			<input type="text" id="prodPrice" name="prodPrice" placeholder="Ex: $10.00"><br>
+			
 
-			<label for="pPrice">Product Price</label>
-			<input type="text" id="pPrice" name="pPrice" placeholder="Enter Product Price">
-
-			<label for="pPicture">Product Picture</label>
-			<input type="text" id="pPicture" name="prodPicture" placeholder="Enter filepath for Product Picture">
-				
-				
-				
-
-			<input type="submit" name="Submit" ad="Submit" value="Create">
+		<input type="submit" name="Submit" ad="Submit" value="Submit">
 		</form>
 		</fieldset>
-		
 </div>
+<?php
+$conn = mysqli_connect("localhost", "admin", "admin","mitten");
+if (mysqli_connect_errno())
+{
+    echo "Connection Error" . mysqli_connect_error();
+}
+// get the post records
+@$idNumber = $_REQUEST["idNumber"];
+@$prodPic = $_REQUEST["prodPic"];
+@$prodName = $_REQUEST['prodName'];
+@$prodPrice = $_REQUEST['prodPrice'];
+// database insert SQL code
+$sql = "INSERT INTO products VALUES ('$idNumber', '$prodPic', '$prodName', '$prodPrice')";
+if($idNumber != "")
+{
+	if(mysqli_query($conn, $sql))
+	{
+		echo "Submitted!";
+	}
+	else 
+	{
+		echo "Error";
+	}
+}
+?>
+
+
+</body>
+</html>
+
 	  

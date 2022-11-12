@@ -187,13 +187,26 @@
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 $i=1001;
-$length=19;
+$length=0;
+
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
+
+$tableSize = "SELECT * FROM products";
+$tableResult = mysqli_query($conn,$tableSize);
+if($tableResult->num_rows > 0)
+{
+	while($tableRow = $tableResult->fetch_assoc())
+	{
+		$length++;
+	}
+}
+
 $sql = "SELECT * FROM products WHERE productID = $i";
 $result = mysqli_query($conn,$sql);
+
                 
     if($result->num_rows > 0)
     {
@@ -204,7 +217,14 @@ $result = mysqli_query($conn,$sql);
             	<table>
                 <tr>
                     <?php
-            			$sql = "SELECT * FROM products WHERE productID = $i";
+            			
+						if($j>=$length)
+					{
+						exit();
+					}
+					else
+					{
+						$sql = "SELECT * FROM products WHERE productID = $i";
            			 	$result = mysqli_query($conn,$sql);
            			 	$row = $result->fetch_assoc();?>
 
@@ -219,15 +239,18 @@ $result = mysqli_query($conn,$sql);
        		 			</div>
 				</tr>
             			<?php
+					}
             			$i++;
             			$j++;
-
-						if($i>$length)
+						if($j>=$length)
 						{
 							exit();
 						}
 						else
 						{
+
+						
+
 							$sql = "SELECT * FROM products WHERE productID = $i";
 							$result = mysqli_query($conn,$sql);
 							$row = $result->fetch_assoc();?>
@@ -247,12 +270,13 @@ $result = mysqli_query($conn,$sql);
 					
 					$i++;
 					$j++;
-					if($i>$length)
+					if($j>=$length)
 					{
 						exit();
 					}
 					else
 					{
+
             			$sql = "SELECT * FROM products WHERE productID = $i";
             			$result = mysqli_query($conn,$sql);
             			$row = $result->fetch_assoc();?>
@@ -270,8 +294,8 @@ $result = mysqli_query($conn,$sql);
 					</div>
 					<?php
 					$i++;
-					$j++;
-				}
+					}
+				
 		}
                        
     }?>
