@@ -42,11 +42,13 @@
 			color: white;
 			height: 1500px;
 		}
-       .title{
-        text-align: center;
-        padding-top: 20px;
-        padding-bottom: 15px;
-        font-size: 20px;
+       .title
+	   {
+			text-align: center;
+			font-family: Impact;
+			padding-top: 60px;
+			padding-bottom: 40px;
+			font-size: 20px;
        }
 		#main-zone
 		{
@@ -173,8 +175,10 @@
             <a href="Review.php">Reviews</a>
       	</div>
         <div class ="title">
-<h1> Products</h1>
-	</div>
+		
+			<h1> Our Products</h1>
+			
+		</div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 $i=1001;
