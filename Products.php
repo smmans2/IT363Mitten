@@ -10,8 +10,6 @@
 		{
 			margin:0px;
 			padding:0px;
-			
-			
 		}
 		.navigation
 		{
@@ -181,7 +179,6 @@
             <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
       	</div>
-		<div clas="fullpage">
         <div class ="heading">
 		
 			<b> Our Products<b>
@@ -207,71 +204,77 @@ $result = mysqli_query($conn,$sql);
             	<table>
                 <tr>
                     <?php
-            		$sql = "SELECT * FROM products WHERE productID = $i";
-           			 $result = mysqli_query($conn,$sql);
-           			 $row = $result->fetch_assoc();
-						?>
+            			$sql = "SELECT * FROM products WHERE productID = $i";
+           			 	$result = mysqli_query($conn,$sql);
+           			 	$row = $result->fetch_assoc();?>
+
             			<div class="clear-fix">
-            			<div class="card">
-                		<img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
-                		<h2><?php echo $row["productDescription"]?></h2>
-                		<p><?php echo $row["productPrice"]?></p>
-           			 </div>
-            		</div>
-            	<div class="card2">
-       		 </div>
+            				<div class="card">
+                			<img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+                			<h2><?php echo $row["productDescription"]?></h2>
+                			<p><?php echo $row["productPrice"]?></p>
+           			 		</div>
+            			</div>
+            			<div class="card2">
+       		 			</div>
+				</tr>
+            			<?php
+            			$i++;
+            			$j++;
 
-     		   </tr>
-            <?php
-            $i++;
-            $j++;
+						if($i>$length)
+						{
+							exit();
+						}
+						else
+						{
+							$sql = "SELECT * FROM products WHERE productID = $i";
+							$result = mysqli_query($conn,$sql);
+							$row = $result->fetch_assoc();?>
 
+							<div class="clear-fix">
+								<div class="card">
+								<img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+								<h2><?php echo $row["productDescription"]?></h2>
+								<p class="price"><?php echo $row["productPrice"]?></p>
+								</div>
+							</div>
+							<div class="card2">
+							</div>
+						
+					<?php
+						}
+					
+					$i++;
+					$j++;
+					if($i>$length)
+					{
+						exit();
+					}
+					else
+					{
+            			$sql = "SELECT * FROM products WHERE productID = $i";
+            			$result = mysqli_query($conn,$sql);
+            			$row = $result->fetch_assoc();?>
 
-            $sql = "SELECT * FROM products WHERE productID = $i";
-            $result = mysqli_query($conn,$sql);
-            $row = $result->fetch_assoc();
-            ?>
-            <div class="clear-fix">
-            <div class="card">
-                <img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
-                <h2><?php echo $row["productDescription"]?></h2>
-                <p class="price"><?php echo $row["productPrice"]?></p>
-            </div>
-            </div>
-            <div class="card2">
-        </div>
-            <?php
-            $i++;
-            $j++;
-
-            $sql = "SELECT * FROM products WHERE productID = $i";
-            $result = mysqli_query($conn,$sql);
-            $row = $result->fetch_assoc();
-            ?>
-            <div class="clear-fix">
-            <div class="card">
-                <img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
-                <h2><?php echo $row["productDescription"]?></h2>
-                <p class="price"><?php echo $row["productPrice"]?></p>
-
-            </div>
-            </div>
-			<div class="card3">
-		</div>
-            </div>
-
-			</div>
-            <?php
-            $i++;
-            $j++;
-
-
-        }
-        
-            
-        
-    }   
-        ?>
+						<div class="clear-fix">
+							<div class="card">
+							<img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+							<h2><?php echo $row["productDescription"]?></h2>
+							<p class="price"><?php echo $row["productPrice"]?></p>
+							</div>
+						</div>
+						<div class="card3">
+						</div>
+            	
+					</div>
+					<?php
+					$i++;
+					$j++;
+				}
+		}
+                       
+    }?>
 
 </table>
 </body>
