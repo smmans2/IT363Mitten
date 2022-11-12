@@ -71,17 +71,16 @@
 		input[type=submit]:hover {
 			background-color: #45a049;
 		}
+		body{
+			background-color: #CFDDC8;
+		}
 
 		.container 
 		{
 			height:100%;
-			border-radius: 5px;
 			background-color: #CFDDC8;
-			padding-top:50px;
-			padding-bottom:100%;
+			padding: 50px;
 			text-align:center;
-			border-style:solid;
-			
 		}
 		.header
 		{
@@ -107,15 +106,6 @@
 			
 			
 		}
-		.logo{
-            padding: 0.5rem;
-            float: right;
-            width: 54px;
-            margin-right: 0.75rem;
-            
-            
-            
-		}
 		
 			</style> 
 		
@@ -129,8 +119,6 @@
             <a href="Contact.php"style="background:white; font-size:23px;color: #18453B;">Contact Us</a>
             <a href="Products.php">Products</a>
             <a href="Review.php">Reviews</a>
-			<img src="fuck.png" class="logo">
-
 	</div>
 
 	  
@@ -169,8 +157,7 @@
 			<input type="submit" name="Submit" ad="Submit" value="Submit">
 			</form>
 			</fieldset>
-		</div>
-	</div>
+		
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
@@ -196,7 +183,8 @@ else
 }
 ?>
 
-
+</div>
+	</div>
 
 </body>
 </html>

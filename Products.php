@@ -42,8 +42,34 @@
 			color: white;
 			height: 1500px;
 		}
+       .heading
+	   {
+            padding-top: 70px;
+			padding-bottom:50px;
+			width: 100%;
+			min-height: 50px;
+			font-size: 50px;
+			font-family: Impact;
+			text-align: center;
+			margin: auto;
+			background-color: #CFDDC8;
+       }
+	   body{
+		background-color:#CFDDC8;
+	   }
+		#main-zone
+		{
+			width:100%;
+			height:800px;
+			padding-top:100px;
+			font-size: 23px;
+			float: center;
+			background-color: #CFDDC8;
+			color: black;
+			text-shadow: none;
+			border-style:solid;
+		}
 		
-		* {box-sizing: border-box;}
 
 		input[type=text], select, textarea 
         {
@@ -72,62 +98,78 @@
 			background-color: #45a049;
 		}
 
-		.container 
-        {
-	        border-radius: 5px;
-			padding: 50px;
-		}
-		
-		
-		.commentsection 
-        {
-			font-size: 30px;
-			padding: 15px;
-			background-color: lightgray;
-			text-align: center;
-		}
-		
-		.commentcontent 
-        {
-			font-size: 20px;
-			padding: 15px;
-			background-color: lightgray;
-			float: left;
-			font: Impact, fantasy;
-			width: 100%;
-		}
-        .card 
-        {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            margin: auto;
-            text-align: center;
-            font-family: arial;
-			width:20%
-        }
-        .price 
-        {
-            color: grey;
-            font-size: 22px;
-        }
-        .card button 
-        {
-            border: none;
-             outline: 0;
-            padding: 12px;
-            color: white;
-            background-color: #000;
-            text-align: center;
-            cursor: pointer;
-            width: 100%;
-             font-size: 18px;
+        table, td, th 
+        {  
+        border: 1px solid #ddd;
+		align: center;
+		background-color: #CFDDC8;
         }
 
-        .card button:hover 
+        .container
         {
-            opacity: 0.7;
+			
+            padding-left:5%;
+            padding-right:5%;
+			padding-bottom:150px;
+            padding-top:100px;
+            width:90%;
+			background-color: #CFDDC8;
+			
         }
+
+        .clearfix::after 
+        {
+            padding-top: 400px;
+			font-size: 23px;
+			padding-left: 5%;
+			padding-right:5%;
+			background-color: #CFDDC8;
+			color: black;
+			text-shadow: none;
+            content: "";
+            clear: both;
+            display: table;
+			float:center;
+	
+        }
+        .card {
+        padding-left:50px;
+        box-shadow: 0px 10px 50px 15px grey;
+        width: 25%;
+		height: 300px;  
+		padding-top:3%;
+        font-size: 23px;
+		background-color: white;
+		color: black;
+	    text-shadow: none;
+        text-align: center;
+        font-family: arial;
+        float: left;
+        }
+
+        .card2 {
+        width: 7.5%;
+		height: 300px;  
+		padding-top:3%;
+		background-color: #CFDDC8;
+		color: black;
+	    text-shadow: none;
+        text-align: center;
+        font-family: arial;
+        float: left;
 		
+        }
+		.card3 {
+        width: 100%;
+		height: 15px;  
+		background-color: #CFDDC8;
+		color: black;
+	    text-shadow: none;
+        text-align: center;
+        font-family: arial;
+        float: left;
 		
+        }
 			</style> 
 		
 	</head>
@@ -138,33 +180,99 @@
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
-			
-
       	</div>
+		<div clas="fullpage">
+        <div class ="heading">
+		
+			<b> Our Products<b>
+			
+		</div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
+$i=1001;
+$length=19;
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
-$sql = "SELECT * FROM products";
-    $result = mysqli_query($conn,$sql);
+$sql = "SELECT * FROM products WHERE productID = $i";
+$result = mysqli_query($conn,$sql);
+                
     if($result->num_rows > 0)
     {
-        
-        while($row = $result->fetch_assoc())
+        for($j=0; $j<=$length; $j++)
         {
             ?>
-            <div class="card">
-            <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
-            <h2><?php echo $row["productDescription"]?></h2>
-            <p>class="price"><?php echo $row["productPrice"]?></p>
-            </div>
-            <?php
-        } 
-        
-    }
+            <div class="container">
+            	<table>
+                <tr>
+                    <?php
+            		$sql = "SELECT * FROM products WHERE productID = $i";
+           			 $result = mysqli_query($conn,$sql);
+           			 $row = $result->fetch_assoc();
+						?>
+            			<div class="clear-fix">
+            			<div class="card">
+                		<img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+                		<h2><?php echo $row["productDescription"]?></h2>
+                		<p><?php echo $row["productPrice"]?></p>
+           			 </div>
+            		</div>
+            	<div class="card2">
+       		 </div>
 
-?>
+     		   </tr>
+            <?php
+            $i++;
+            $j++;
+
+
+            $sql = "SELECT * FROM products WHERE productID = $i";
+            $result = mysqli_query($conn,$sql);
+            $row = $result->fetch_assoc();
+            ?>
+            <div class="clear-fix">
+            <div class="card">
+                <img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+                <h2><?php echo $row["productDescription"]?></h2>
+                <p class="price"><?php echo $row["productPrice"]?></p>
+            </div>
+            </div>
+            <div class="card2">
+        </div>
+            <?php
+            $i++;
+            $j++;
+
+            $sql = "SELECT * FROM products WHERE productID = $i";
+            $result = mysqli_query($conn,$sql);
+            $row = $result->fetch_assoc();
+            ?>
+            <div class="clear-fix">
+            <div class="card">
+                <img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+                <h2><?php echo $row["productDescription"]?></h2>
+                <p class="price"><?php echo $row["productPrice"]?></p>
+
+            </div>
+            </div>
+			<div class="card3">
+		</div>
+            </div>
+
+			</div>
+            <?php
+            $i++;
+            $j++;
+
+
+        }
+        
+            
+        
+    }   
+        ?>
+
+</table>
 </body>
 </html>

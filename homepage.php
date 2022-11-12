@@ -172,15 +172,6 @@
 			margin: center;
 			
 		}
-		.logo{
-            padding: 0.5rem;
-            float: right;
-            width: 54px;
-            margin-right: 0.75rem;
-            
-            
-            
-		}
 		
 
 		</style> 
@@ -195,14 +186,12 @@
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php">Products</a>
             <a href="Review.php">Reviews</a>
-			<img src="fuck.png" class="logo">
-
       </div>
 	  
 	   
 	   
 	   <div class="logo">
-		<img src="fuck.png" alt="Mitten Logo" width="300" height="300"> 
+		<img src="\Mitten\fuck.png" alt="Mitten Logo" width="300" height="300"> 
 		</div>
 	  <div class="message2">
 	        
