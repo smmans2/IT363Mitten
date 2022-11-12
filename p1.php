@@ -72,39 +72,49 @@
 			background-color: #45a049;
 		}
 
-		#main-zone
-		{
-			padding-top: 100px;
-			width:100%;
-            height:1000px;
+        table, td, th 
+        {  
+        border: 1px solid #ddd;
+        text-align: left;
+        }
+		.box 
+        {
+            float: left;
+            width: 33.33%;
+            padding: 50px;
+            padding-top: 100px;
 			font-size: 23px;
-			float: center;
 			background-color: #CFDDC8;
 			color: black;
 			text-shadow: none;
-		}
-		#main-zone .productbox
-		{
-			padding-top: 60px;
-            padding-left:10%;
-            padding-right:10%;
-            padding-bottom:5%;
-			width: 80%;
-			height:100%;
-            border-style:solid;
-			text-align: center;
-			margin: auto;
-            
-			
-			
-		}
+        }
+
+        .clearfix::after 
+        {
+            padding-top: 100px;
+			font-size: 23px;
+			background-color: #CFDDC8;
+			color: black;
+			text-shadow: none;
+            content: "";
+            clear: both;
+            display: table;
+        }
         .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 300px;
-        margin: auto;
+        width: 33.33%;
+        padding: 50px;
+        padding-top: 100px;   
+        font-size: 23px;
+		background-color: #CFDDC8;
+		color: black;
+	    text-shadow: none;
         text-align: center;
         font-family: arial;
+        float: left;
+
         }
+
         .price 
         {
             color: grey;
@@ -139,37 +149,19 @@
             <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
       	</div>
-
-        <div id="main-zone">
-            <div class="productbox">
-            <?php
-                $conn = mysqli_connect("localhost", "admin", "admin","mitten");
-                if (mysqli_connect_errno())
-                {
-                    echo "Connection Error" . mysqli_connect_error();
-                }
-                $sql = "SELECT * FROM products";
-                $result = mysqli_query($conn,$sql);
-                if($result->num_rows > 0)
-                {
-        
-                    while($row = $result->fetch_assoc())
-                    {
-                        ?>
-                        <div class="card">
-                        <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
-                        <h2><?php echo $row["productDescription"]?></h2>
-                        <p><?php echo $row["productPrice"]?></p>
-                        </div>
-                        <?php
-                    } 
-        
-                }
-
-?>
+        <div class="clear-fix">
+            <div class="card">
+                <p>Test<p>
+            </div>
+            <div class="card">
+                <p>Test<p>
+            </div>
+            <div class="card">
+                <p>Test<p>
             </div>
         </div>
-
+    
+    
 
 
 
