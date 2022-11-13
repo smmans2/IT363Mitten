@@ -106,6 +106,15 @@
 			
 			
 		}
+		.logo{
+            padding: 0.5rem;
+            float: right;
+            width: 54px;
+            margin-right: 0.75rem;
+            
+            
+            
+		}
 		
 			</style> 
 		
@@ -119,6 +128,7 @@
             <a href="Contact.php"style="background:white; font-size:23px;color: #18453B;">Contact Us</a>
             <a href="Products.php">Products</a>
             <a href="Review.php">Reviews</a>
+			<img src=fuck.png class="logo">
 	</div>
 
 	  
