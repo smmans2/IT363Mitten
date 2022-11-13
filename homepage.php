@@ -77,6 +77,7 @@
 		padding-top:200px;
 		padding-right: 120px;
 		float: right;
+		box-shadow: 0px 10px 50px 15px grey;
 		}
 		
 		.image

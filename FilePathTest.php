@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<!doctype html>
 <html lan="en"><head>
 		<meta charset="utf-8">
 		<title>Mitten Distribution</title>
@@ -115,18 +111,12 @@
 	
 	<fieldset>
 	<div class="container">
-		<form name = "addprod" method="post" action="adminadd.php">
+		<form name = "addprod" method="post" action="FilePathTest.php">
 			<label for="idNumber">ID Number</label><br>
 			<input type="text" id="idNumber" name="idNumber" placeholder="Enter ID Number"><br>
 
 			<label for="prodPic">Product Picture</label><br>
-			<input type="text" id="prodPic" name="prodPic" placeholder="Ex: \\ProductPics\\woodPallet.png  MUST USE DOUBLE SLASH ( \\ )"><br>
-			
-			<label for="prodName">Product Name</label><br>
-			<input type="text" id="prodName" name="prodName" placeholder="Enter Product Name"><br>
-			
-			<label for="prodPrice">Product Price</label><br>
-			<input type="text" id="prodPrice" name="prodPrice" placeholder="Ex: $10.00"><br>
+			<input type="text" id="prodPic" name="prodPic" placeholder="Ex: \ProductPics\woodPallet.png"><br>
 			
 
 		<input type="submit" name="Submit" ad="Submit" value="Submit">
@@ -134,7 +124,7 @@
 		</fieldset>
 </div>
 <?php
-$conn = mysqli_connect("localhost", "admin", "admin","mitten");
+$conn = mysqli_connect("localhost", "admin", "admin","test");
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
@@ -142,10 +132,8 @@ if (mysqli_connect_errno())
 // get the post records
 @$idNumber = $_REQUEST["idNumber"];
 @$prodPic = $_REQUEST["prodPic"];
-@$prodName = $_REQUEST['prodName'];
-@$prodPrice = $_REQUEST['prodPrice'];
 // database insert SQL code
-$sql = "INSERT INTO products VALUES ('$idNumber', '$prodPic', '$prodName', '$prodPrice')";
+$sql = "INSERT INTO testSubmission VALUES ('$idNumber', '$prodPic')";
 if($idNumber != "")
 {
 	if(mysqli_query($conn, $sql))
