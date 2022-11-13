@@ -26,9 +26,9 @@
 			float: left;
 			color: #f2f2f2;
 			text-align: center;
-			padding: 14px 16px;
+			padding: 16px 24px;
 			text-decoration: none;
-			font-size: 19px;
+			font-size: 23px;
 		}
 		.navigation a:hover
 		{
@@ -41,6 +41,7 @@
 			color: white;
 			height: 1500px;
 		}
+		
 		
 		* {box-sizing: border-box;}
 
@@ -93,25 +94,39 @@
 		.container {
 		
 			border-radius: 5px;
-			background-color: #f2f2f2;
+			background-color: lightgrey;
+			float:left;
+			width:100%;
+			height:100%;
+			padding-top:100px;
 			padding: 50px;
+			border-style:solid;
 			}
 		
-		
+		.commentname {
+			font-size: 25px;
+			padding: 10px;			
+			float: center;			
+			width: 100%;
+		}
+
+		.commentcontent {
+			font-size: 20px;
+			padding: 15px;
+			float: center;	
+			width: 100%;
+		}
+		.buffer
+		{
+			width:100%;
+			height:20px;
+			background-color:white;
+		}
 		.commentsection {
 			font-size: 30px;
 			padding: 15px;
 			background-color: lightgray;
 			text-align: center;
-		}
-		
-		.commentcontent {
-			font-size: 20px;
-			padding: 15px;
-			background-color: lightgray;
-			float: left;
-			font: Impact, fantasy;
-			width: 100%;
 		}
 		
 			</style> 
@@ -141,13 +156,19 @@ $sql = "SELECT * FROM contactinformation";
         while($row = $result->fetch_assoc())
         {
             ?>
-			<div class = "commentname">
-				<h5><?php echo $row["cFirstName"]?> , <?php echo $row["cLastName"]?> - <?php echo $row["cEmail"]?></h5>	
-			</div>
-			<div class = "commentcontent">
-				<p><?php echo $row["productDescription"]?></p>
-
-			</div>
+			<div class="container">
+				<div class = "commentname">
+					<h2><?php echo $row["cFirstName"]?> , <?php echo $row["cLastName"]?></h2>
+					<p><?php echo $row["cEmail"]?></p>
+					<p><?php echo $row["cPhoneNumber"]?></p>	
+				</div>
+				<div class = "commentcontent">
+					<p>Service Type: <?php echo $row["cTypesOfService"]?></p>
+					<p>Other Information: <?php echo $row["cOtherInformation"]?></p>
+				</div>
+		    </div>
+		    <div class="buffer">
+		    </div>
 		<?php
         } 
         

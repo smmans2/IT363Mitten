@@ -118,7 +118,7 @@ $sql = "SELECT * FROM adminlogin";
             if(($row[$username] == $_REQUEST['username']) &&
             ($row[$password] == $_REQUEST['password'])) 
             {
-                header("location: adminAdd.html");
+                header("location: adminAdd.php");
             }
        
         }

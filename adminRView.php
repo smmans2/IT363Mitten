@@ -26,9 +26,9 @@
 			float: left;
 			color: #f2f2f2;
 			text-align: center;
-			padding: 14px 16px;
+			padding: 16px 24px;
 			text-decoration: none;
-			font-size: 19px;
+			font-size: 23px;
 		}
 		.navigation a:hover
 		{
@@ -68,41 +68,59 @@
 			background-color: #45a049;
 		}
 
+
+		#main-zone .box
+		{
+			padding-top: 60px;
+			width: 100%;
+			min-height: 50px;
+			font-size: 50px;
+			text-align: left;
+			margin: auto;
+			
+			
+		}
+		#main-zone .box1
+		{
+			width: 100%;
+			min-height: 50px;
+			font-size: 25px;
+			text-align: left;
+			margin: auto;
+			padding-bottom: 100px;
+			
+		}
 		.container {
-			box-shadow: 0 0 3px;
+		
 			border-radius: 5px;
-			background-color: #f2f2f2;
+			background-color: lightgrey;
+			float:left;
+			width:100%;
+			height:100%;
+			padding-top:100px;
 			padding: 50px;
+			border-style:solid;
 			}
 		
-		
+		.commentname {
+			font-size: 25px;
+			padding: 10px;			
+			float: center;			
+			width: 100%;
+		}
+
+		.commentcontent {
+			font-size: 20px;
+			padding: 15px;
+			float: center;	
+			width: 100%;
+		}
 		.commentsection {
 			font-size: 30px;
 			padding: 15px;
 			background-color: lightgray;
 			text-align: center;
 		}
-		
-		.commentcontent {
-			font-size: 20px;
-			padding: 15px;
-			background-color: lightgray;
-			float: left;
-			font: Impact, fantasy;
-			width: 100%;
-		}
-		.header {
-			text-align: center;
-			height: 40px;
-			border-radius: 5px;
-			background-color: #f2f2f2;
-			padding: 50px;
-			margin-top: 18px;
-			margin-bottom: 18px;
-			font-size: 40px;
-		}
-
-
 		
 			</style> 
 		
@@ -118,19 +136,32 @@
             <a style="background:white; font-size:23px;color: #18453B;" href="adminRView.php">View Reviews</a>
             <a href="adminOView.php">View Orders</a>
       </div>
+<?php
+$conn = mysqli_connect("localhost", "admin", "admin","mitten");
+if (mysqli_connect_errno())
+{
+    echo "Connection Error" . mysqli_connect_error();
+}
+$sql = "SELECT * FROM survey";
+    $result = mysqli_query($conn,$sql);
+    if($result->num_rows > 0)
+    {
+        while($row = $result->fetch_assoc())
+        {
+            ?>
+			<div class="container">
+				<div class = "commentname">
+					<h2><?php echo $row["sFirstName"]?> , <?php echo $row["sLastName"]?></h2>
+					<p><?php echo $row["sEmail"]?></p>
+				</div>
+				<div class = "commentcontent">
+					<p>Comment: <?php echo $row["sComments"]?></p>
+				</div>
+		</div>
+		<?php
+        } 
+        
+    }
 
-	  <div class="header">
-		<a > View Reviews</a>
-	</div>
-
-	  <div class="container">
-		<form name = "frmReview" method="post" action = "survey.php">
-			<label for="reviewId">Review ID</label>
-			<input type="text" id="reviewId" name="ReviewID" placeholder="Enter Review ID">
-
-			<input type="submit" name="Submit" ad="Submit" value="Search">
-		</form>
-		</fieldset>
-		
-</div>
+?>
 	  

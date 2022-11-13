@@ -131,7 +131,6 @@
 	
         }
         .card {
-        padding-left:50px;
         box-shadow: 0px 10px 50px 15px grey;
         width: 25%;
 		height: 300px;  
@@ -149,9 +148,16 @@
         width: 7.5%;
 		height: 300px;  
 		padding-top:3%;
-		background-color: #CFDDC8;
-		color: black;
-	    text-shadow: none;
+	
+        text-align: center;
+        font-family: arial;
+        float: left;
+		}
+		.cardBuffer {
+        width: 5%;
+		height: 300px;  
+		padding-top:3%;
+	
         text-align: center;
         font-family: arial;
         float: left;
@@ -160,9 +166,6 @@
 		.card3 {
         width: 100%;
 		height: 15px;  
-		background-color: #CFDDC8;
-		color: black;
-	    text-shadow: none;
         text-align: center;
         font-family: arial;
         float: left;
@@ -188,7 +191,6 @@
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php"style="background:white; font-size:23px;color: #18453B;">Products</a>
             <a href="Review.php">Reviews</a>
-			<img src=fuck.png class="logo">
       	</div>
         <div class ="heading">
 		
@@ -238,6 +240,8 @@ $result = mysqli_query($conn,$sql);
 						$sql = "SELECT * FROM products WHERE productID = $i";
            			 	$result = mysqli_query($conn,$sql);
            			 	$row = $result->fetch_assoc();?>
+						<div class="cardBuffer">
+					</div>
 
             			<div class="clear-fix">
             				<div class="card">
@@ -299,6 +303,8 @@ $result = mysqli_query($conn,$sql);
 							<p class="price"><?php echo $row["productPrice"]?></p>
 							</div>
 						</div>
+						<div class="cardBuffer">
+					</div>
 						<div class="card3">
 						</div>
             	

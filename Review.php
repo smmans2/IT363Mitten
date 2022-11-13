@@ -154,7 +154,7 @@
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php">Products</a>
 			<a href="Review.php"style="background:white; font-size:23px;color: #18453B;">Reviews</a>
-			<img src=fuck.png class="logo">
+
            
       </div>
 	  
