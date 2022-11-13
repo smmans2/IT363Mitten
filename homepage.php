@@ -183,7 +183,7 @@
 
  
       <div class="navigation">
-            <a class="active" style="background:white; font-size:23px;color: #18453B;"href="homepage.php">Home</a>
+            <a class="active" style="background:white; font-size:23px;color: #18453B;" href="homepage.php">Home</a>
             <a href="Contact.php">Contact Us</a>
             <a href="Products.php">Products</a>
             <a href="Review.php">Reviews</a>

@@ -100,7 +100,7 @@
 
  
 	<div class="navigation">
-		<a href="adminAdd.php">Add Products</a>
+		<a style="background:white; font-size:23px;color: #18453B;" href="adminAdd.php">Add Products</a>
 		<a href="adminRemove.php">Remove Products</a>
 		<a href="adminUpdate.php">Update Products</a>
 		<a href="adminRView.php">View Reviews</a>

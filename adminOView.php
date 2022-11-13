@@ -68,6 +68,28 @@
 			background-color: #45a049;
 		}
 
+
+		#main-zone .box
+		{
+			padding-top: 60px;
+			width: 100%;
+			min-height: 50px;
+			font-size: 50px;
+			text-align: left;
+			margin: auto;
+			
+			
+		}
+		#main-zone .box1
+		{
+			width: 100%;
+			min-height: 50px;
+			font-size: 25px;
+			text-align: left;
+			margin: auto;
+			padding-bottom: 100px;
+			
+		}
 		.container {
 		
 			border-radius: 5px;
@@ -104,7 +126,7 @@
             <a href="adminRemove.php">Remove Products</a>
 			<a href="adminUpdate.php">Update Products</a>
             <a href="adminRView.php">View Reviews</a>
-            <a href="adminOView.php">View Orders</a>
+            <a style="background:white; font-size:23px;color: #18453B;"href="adminOView.php">View Orders</a>
       </div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
@@ -112,21 +134,21 @@ if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM contactinformation";
     $result = mysqli_query($conn,$sql);
     if($result->num_rows > 0)
     {
-        
         while($row = $result->fetch_assoc())
         {
             ?>
-            <div class="card">
-            <img src="<?php echo $row["productPicture"]?>" alt="Picture: " style="width:30%">
-            <h2><?php echo $row["productDescription"]?></h2>
+			<div class = "commentname">
+				<h5><?php echo $row["cFirstName"]?> , <?php echo $row["cLastName"]?> - <?php echo $row["cEmail"]?></h5>	
+			</div>
+			<div class = "commentcontent">
+				<p><?php echo $row["productDescription"]?></p>
 
-            <p><?php echo $row["productPrice"]?></p>
-            </div>
-            <?php
+			</div>
+		<?php
         } 
         
     }
