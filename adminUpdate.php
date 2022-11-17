@@ -78,7 +78,17 @@
         .prodCont {
             padding: 50px;
         }
-    
+		.header
+		{
+			padding-top: 100px;
+			width: 100%;
+			font-size: 50px;
+			font-family: Impact;
+			text-align: center;
+			
+			
+			
+		}
     
 		
 		.commentsection {
@@ -98,21 +108,23 @@
 		}
         .formleft
 		{
-			padding-top:10%;
+			padding-top:100px;
 			padding-left:5%;
 			width:45%;
             height:50%;
 			float: left;
+			
             
 		}
 		.confirm
 		{
-            padding-top:50%;
+            padding-top:100px;
             width:40%;
+			height: 650px;
             padding-right:5%;
             float:right;
             border-style:solid;
-            overflow:scroll;
+            overflow:auto;
         }
 		
 			</style> 
@@ -129,14 +141,16 @@
 		<a href="adminRView.php">View Reviews</a>
 		<a href="adminOView.php">View Orders</a>
   </div>
+  <div class="header">
+		<b>Enter requested information to update a product<br>See product listing to the right</b> 
+	</div>
 
 
 
-<div class="container">
 <div class="formleft">
-  <form name = "frmSurvey" method="post" action = "review.php">
-	<label for="firstName">ID number of product to edit</label><br>
-	<input type="text" id="firstName" name="firstName" placeholder="First name"><br><br><br><br>
+  <form name = "frmSurvey" method="post" action = "adminUpdate.php">
+	<label for="idNumber">ID number of product to edit</label><br>
+	<input type="text" id="idNumber" name="idNumber" placeholder="First name"><br><br><br><br>
 
     <label for="name">Product Name</label><br>
 	<input type="text" id="name" name="name" placeholder="Product Name"><br>
@@ -145,13 +159,15 @@
 	<input type="text" id="path" name="path" placeholder="File Path"><br>
 	
 	<label for="price">Product Price</label><br>
-	<textarea id="comment" name="price" placeholder="Product Price" style="height:200px"></textarea><br>
+	<textarea id="price" name="price" placeholder="Product Price" style="height:200px"></textarea><br>
 
 	<input type="submit" name="Submit" ad="Submit" value="Submit">
     </form>
 </div>
-    <div class="confirm">
-    <?php
+	</div>
+	<div class="confirm">
+
+<?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
@@ -164,11 +180,13 @@ $sql = "SELECT * FROM products";
         while($row = $result->fetch_assoc())
         {
             ?>
+			
 			<div class="prodCont">
 				<div class = "commentname">
 					<h3>ID Number: <?php echo $row["productID"]?></h3>
 					<p>Product Name: <?php echo $row["productDescription"]?></p>
                     <p>Product Price: <?php echo $row["productPrice"]?></p>
+					<img src="<?php echo $row["productPicture"]?>" alt="Picture">
 				</div>
                 <div class="commentcontent">
               </div>
@@ -179,13 +197,18 @@ $sql = "SELECT * FROM products";
     }
 
 ?>
+</div>
     <?php
 
 	@$idNumber = $_REQUEST["idNumber"];
+	@$path = $_REQUEST["path"];
+	@$name = $_REQUEST["name"];
+	@$price = $_REQUEST["price"];
 	// database insert SQL code
-	$sql = "DELETE FROM products WHERE productID = ('$idNumber')";
-    
-    if(@$idnumber != " ")
+
+	//$sql = "UPDATE products SET productPicture='$path',productDescription='[$name]',productPrice='[$price]' WHERE productID ='[$idNumber]'";
+    $sql = "UPDATE products " . "SET productID= '$idNumber', productPicture = '$path', productDescription= '$name', productPrice= '$price' " . "WHERE productID=$idNumber";
+    if(@$idNumber != "")
     {
     if(mysqli_query($conn, $sql))
 		{
