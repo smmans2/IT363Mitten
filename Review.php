@@ -135,10 +135,21 @@
             padding: 0.5rem;
             float: right;
             width: 54px;
-            margin-right: 0.75rem;
-            
-            
-            
+            margin-right: 0.75rem;            
+		}
+		.formleft
+		{
+			padding-top:20%;
+			padding-left:5%;
+			width:40%;
+			float: left;
+		}
+		.formright
+		{
+			padding-top:20%;
+			padding-right:5%;
+			width:40%;
+			float: right;
 		}
 		
 		

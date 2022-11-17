@@ -70,20 +70,16 @@
 		}
 
 		.container {
-
-
-			padding: 50px;
-			}
-        .buffer {
-        box-shadow: 0 0 3px;
-        width:100%;
-        height:150px;
-        font-size:35px;
-        text-align:center;
+        border-radius: 5px;
+        background-color: #CFDDC8;
         padding: 50px;
-        background-color: lightgrey;
+        text-align:left;
         }
-		
+        .prodCont {
+            padding: 50px;
+        }
+    
+    
 		
 		.commentsection {
 			font-size: 30px;
@@ -91,73 +87,71 @@
 			background-color: lightgray;
 			text-align: center;
 		}
-		.commentname {
-			font-size: 25px;
-			padding: 10px;
-			float: left;		
-			width: 100%;
-            border-style:solid;
-		}
-
+		
 		.commentcontent {
 			font-size: 20px;
 			padding: 15px;
+			background-color: lightgray;
 			float: left;
+			font: Impact, fantasy;
 			width: 100%;
-    
 		}
-		.header {
-			
-			text-align: center;
-			height: 40px;
-			border-radius: 5px;
-			background-color: #f2f2f2;
-			padding: 50px;
-			margin-top: 18px;
-			margin-bottom: 18px;
-			font-size: 40px;
-			
+        .formleft
+		{
+			padding-top:10%;
+			padding-left:5%;
+			width:45%;
+            height:50%;
+			float: left;
+            
 		}
-	
+		.confirm
+		{
+            padding-top:50%;
+            width:40%;
+            padding-right:5%;
+            float:right;
+            border-style:solid;
+            overflow:scroll;
+        }
 		
 			</style> 
 		
 	</head>
 
-	<body>
+<body>
 
  
-		<div class="navigation">
-			<a href="adminAdd.php">Add Products</a>
-			<a style="background:white; font-size:23px;color: #18453B;"href="adminRemove.php">Remove Products</a>
-			<a href="adminUpdate.php">Update Products</a>
-			<a href="adminRView.php">View Reviews</a>
-			<a href="adminOView.php">View Orders</a>
-	  </div>
-	
-	  <div class="contactmessage">
-	
-		<body>
-	
-		<h3>Contact Form</h3>
-		
-		<fieldset>
-		<div class="container">
-			<form name = "addprod" method="post" action="adminRemove.php">
-				<label for="idNumber">ID Number</label><br>
-				<input type="text" id="idNumber" name="idNumber" placeholder="Enter ID number of product you would like to remove."><br>
-	
-			<input type="submit" name="Submit" ad="Submit" value="Submit">
-			</form>
-			</fieldset>
-	</div>
-    <div class="buffer">
-        <p>View product table below</p>
-    </div>
+	<div class="navigation">
+		<a href="adminAdd.php">Add Products</a>
+		<a href="adminRemove.php">Remove Products</a>
+		<a style="background:white; font-size:23px;color: #18453B;" href="adminUpdate.php">Update Products</a>
+		<a href="adminRView.php">View Reviews</a>
+		<a href="adminOView.php">View Orders</a>
+  </div>
 
 
+
+<div class="container">
+<div class="formleft">
+  <form name = "frmSurvey" method="post" action = "review.php">
+	<label for="firstName">ID number of product to edit</label><br>
+	<input type="text" id="firstName" name="firstName" placeholder="First name"><br><br><br><br>
+
+    <label for="name">Product Name</label><br>
+	<input type="text" id="name" name="name" placeholder="Product Name"><br>
 	
-<?php
+	<label for="path">File Path (Must use \\)</label><br>
+	<input type="text" id="path" name="path" placeholder="File Path"><br>
+	
+	<label for="price">Product Price</label><br>
+	<textarea id="comment" name="price" placeholder="Product Price" style="height:200px"></textarea><br>
+
+	<input type="submit" name="Submit" ad="Submit" value="Submit">
+    </form>
+</div>
+    <div class="confirm">
+    <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
@@ -170,7 +164,7 @@ $sql = "SELECT * FROM products";
         while($row = $result->fetch_assoc())
         {
             ?>
-			<div class="container">
+			<div class="prodCont">
 				<div class = "commentname">
 					<h3>ID Number: <?php echo $row["productID"]?></h3>
 					<p>Product Name: <?php echo $row["productDescription"]?></p>
@@ -209,3 +203,5 @@ $sql = "SELECT * FROM products";
 	</html>
 	
 	  
+    </div>
+</div>
