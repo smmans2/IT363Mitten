@@ -106,7 +106,8 @@
 		<a href="adminUpdate.php">Update Products</a>
 		<a href="adminRView.php">View Reviews</a>
 		<a href="adminOView.php">View Orders</a>
-  </div>
+		<a style="font-size:23px;color:white;float:right;"href="loginpage.php">Log Out</a>
+	 </div>
 
   <div class="contactmessage">
 
