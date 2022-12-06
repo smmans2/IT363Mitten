@@ -151,7 +151,7 @@ if(!isset($_SESSION["username"]))
 			<a href="adminUpdate.php">Update Products</a>
             <a href="adminRView.php">View Reviews</a>
             <a style="background:white; font-size:23px;color: #18453B;"href="adminOView.php">View Orders</a>
-			<a style="font-size:23px;color:white;float:right;"href="loginpage.php">Log Out</a>
+			<a style="font-size:23px;color:white;float:right;"href="logout.php">Log Out</a>
       </div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
