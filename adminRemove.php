@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION["username"]))
+{
+	header("location:loginPage.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -125,6 +133,7 @@
 	</head>
 
 	<body>
+	<?echo $_SESSION["username"];?>
 
  
 		<div class="navigation">
