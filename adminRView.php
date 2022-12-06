@@ -135,6 +135,7 @@
 			<a href="adminUpdate.php">Update Products</a>
             <a style="background:white; font-size:23px;color: #18453B;" href="adminRView.php">View Reviews</a>
             <a href="adminOView.php">View Orders</a>
+			<a style="font-size:23px;color:white;float:right;"href="loginpage.php">Log Out</a>
       </div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");

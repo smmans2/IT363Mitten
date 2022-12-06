@@ -140,6 +140,7 @@
 		<a style="background:white; font-size:23px;color: #18453B;" href="adminUpdate.php">Update Products</a>
 		<a href="adminRView.php">View Reviews</a>
 		<a href="adminOView.php">View Orders</a>
+		<a style="font-size:23px;color:white;float:right;"href="loginpage.php">Log Out</a>
   </div>
   <div class="header">
 		<b>Enter requested information to update a product<br>See product listing to the right</b> 
