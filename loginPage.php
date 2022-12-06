@@ -97,7 +97,6 @@ body {
     </form>
 
     <?php
-//include_once '1db_connection.php';
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
