@@ -177,7 +177,7 @@ if($tableResult->num_rows > 0)
 	}
 }
 $count=0;
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM test";
 $result = mysqli_query($conn,$sql);
 if($result->num_rows > 0)
     {
@@ -185,10 +185,10 @@ if($result->num_rows > 0)
         {
             ?>
             <div class="sidespace">
-            </div>
-
+        </div>
+        
             <div class="product">
-            <img src="<?php echo $row["productPicture"]?>" alt="Picture" style="width:30%">
+            <?php echo '<img src="data:image/png;base64,'.base64_encode($row["pic"]).'alt="Picture" style="width:75%" "/>';?>
             <h2><?php echo $row["productDescription"]?></h2>
             <p><?php echo $row["productPrice"]?></p>
             </div>
