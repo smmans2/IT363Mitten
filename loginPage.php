@@ -98,34 +98,59 @@ body {
 
     <?php
 //include_once '1db_connection.php';
+session_start();
+  
+ 
+//connection to databse 
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
     echo "Connection Error " . mysqli_connect_error();
 }
 echo "Connection Established"."<br><br><br><br>";
+
+//setting username and pw from databse
 $username = "username";
 $password = "password";
 
-
+//getting names(* all) from databse
 $sql = "SELECT * FROM adminlogin";
     $result = mysqli_query($conn,$sql);
     if($result->num_rows > 0)
     {
+	
         
         while($row = $result->fetch_assoc())
         {
+			
             if(($row[$username] == $_REQUEST['username']) &&
             ($row[$password] == $_REQUEST['password'])) 
             {
+				//identifier for other pages
+				$_SESSION["username"]=$username;
+				
+				
                 header("location: adminAdd.php");
+				
             }
        
         }
-    } 
-        
-    
+		
+		
 
+	}
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    // last request was more than 30 minutes ago
+    session_unset();     // unset $_SESSION variable for the run-time 
+    session_destroy();   // destroy session data in storage
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+    
+	
+
+	
+    
+  //  111111111    
 ?>
 
 </body>
