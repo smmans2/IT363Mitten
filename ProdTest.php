@@ -108,6 +108,24 @@
             font-family: arial;
             float: left;
         }
+        .pictureBox
+        {
+            border-style:solid;
+            object-fit:cover;
+            max-width:100%;
+            max-height:75%;
+            float:middle;
+            overflow:hidden;
+        }
+        .pic
+        {
+            max-width:100%;
+            width:100%;
+            height:auto;
+            border-style:solid;
+            background-repeat: no-repeat;
+        }
+    
         .sidespace
         {
             width:6.25%;
@@ -183,15 +201,20 @@ if($result->num_rows > 0)
     {
         while($row = $result->fetch_assoc())
         {
+            $image='<img src="data:image/png;base64,'.base64_encode($row["pic"]).'alt="Picture""/>';
             ?>
             <div class="sidespace">
         </div>
         
             <div class="product">
-            <?php echo '<img src="data:image/png;base64,'.base64_encode($row["pic"]).'alt="Picture" style="width:75%" "/>';?>
-            <h2><?php echo $row["productDescription"]?></h2>
-            <p><?php echo $row["productPrice"]?></p>
+            <div class="pictureBox">
+                <div class="pic">
+                </div>
             </div>
+                <h2><?php echo $row["productDescription"]?></h2>
+                <p><?php echo $row["productPrice"]?></p>
+            </div>
+
             <?php
             $count ++;
             if($count%3==0)
@@ -204,7 +227,7 @@ if($result->num_rows > 0)
                 <?php
             }
         }
-        
+        ##width "100%" height "100%"
 
     }?>
 
