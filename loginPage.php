@@ -102,6 +102,7 @@ session_start();
   
  
 //connection to databse 
+
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
@@ -139,18 +140,7 @@ $sql = "SELECT * FROM adminlogin";
 		
 
 	}
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-    // last request was more than 30 minutes ago
-    session_unset();     // unset $_SESSION variable for the run-time 
-    session_destroy();   // destroy session data in storage
-}
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-    
-	
-
-	
-    
-  //  111111111    
+   
 ?>
 
 </body>
