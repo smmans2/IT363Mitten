@@ -166,7 +166,7 @@ if(!isset($_SESSION["username"]))
 	<input type="text" id="name" name="name" placeholder="Product Name"><br>
 	
 	<label for="path">File Path (Must use \\)</label><br>
-	<input type="text" id="path" name="path" placeholder="File Path"><br>
+	<input type="file" id="path" name="path" placeholder="File Path"><br>
 	
 	<label for="price">Product Price</label><br>
 	<textarea id="price" name="price" placeholder="Product Price" style="height:200px"></textarea><br>
@@ -179,6 +179,9 @@ if(!isset($_SESSION["username"]))
 
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
+$path = "\\\practice\\\mittenpics\\\\";
+$image = $_REQUEST["path"];
+
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
@@ -211,13 +214,13 @@ $sql = "SELECT * FROM products";
     <?php
 
 	@$idNumber = $_REQUEST["idNumber"];
-	@$path = $_REQUEST["path"];
+	@$prodPic = $path.$image;
 	@$name = $_REQUEST["name"];
 	@$price = $_REQUEST["price"];
 	// database insert SQL code
 
 	//$sql = "UPDATE products SET productPicture='$path',productDescription='[$name]',productPrice='[$price]' WHERE productID ='[$idNumber]'";
-    $sql = "UPDATE products " . "SET productID= '$idNumber', productPicture = '$path', productDescription= '$name', productPrice= '$price' " . "WHERE productID=$idNumber";
+    $sql = "UPDATE products " . "SET productID= '$idNumber', productPicture = '$prodPic', productDescription= '$name', productPrice= '$price' " . "WHERE productID=$idNumber";
     if(@$idNumber != "")
     {
     if(mysqli_query($conn, $sql))

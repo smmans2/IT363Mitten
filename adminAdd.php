@@ -131,7 +131,7 @@ if(!isset($_SESSION["username"]))
 			<input type="text" id="idNumber" name="idNumber" placeholder="Enter ID Number"><br>
 
 			<label for="prodPic">Product Picture</label><br>
-			<input type="text" id="prodPic" name="prodPic" placeholder="Ex: \\ProductPics\\woodPallet.png  MUST USE DOUBLE SLASH ( \\ )"><br>
+			<input type="file" id="prodPic" name="prodPic" placeholder="Ex: \\ProductPics\\woodPallet.png  MUST USE DOUBLE SLASH ( \\ )"><br>
 			
 			<label for="prodName">Product Name</label><br>
 			<input type="text" id="prodName" name="prodName" placeholder="Enter Product Name"><br>
@@ -146,13 +146,16 @@ if(!isset($_SESSION["username"]))
 </div>
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
+$path = "\\\practice\\\mittenpics\\\\";
+$image = $_REQUEST["prodPic"];
+
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
 // get the post records
 @$idNumber = $_REQUEST["idNumber"];
-@$prodPic = $_REQUEST["prodPic"];
+@$prodPic = $path.$image;
 @$prodName = $_REQUEST['prodName'];
 @$prodPrice = $_REQUEST['prodPrice'];
 // database insert SQL code
