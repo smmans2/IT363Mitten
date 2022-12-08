@@ -193,7 +193,7 @@
 	   
 	   
 	   <div class="logo">
-		<img src="\Mitten\fuck.png" alt="Mitten Logo" width="300" height="300"> 
+		<img src="\Mitten\logo.png" alt="Mitten Logo" width="300" height="300"> 
 		</div>
 	  <div class="message2">
 	        
