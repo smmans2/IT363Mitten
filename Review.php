@@ -159,7 +159,7 @@
 
 <body>
 
- 
+ <!-- user side nav bar -->
        <div class="navigation">
             <a class="active" href="homepage.php">Home</a>
             <a href="Contact.php">Contact Us</a>
@@ -173,7 +173,7 @@
 		<div class="contactmessage">
 
 		<body>
-
+<!-- Display page header and form to leave reviews -->
         <fieldset>
 		<div class="container">
 		<div class="header">
@@ -200,7 +200,7 @@
 			</fieldset>
 			
 </div>
-
+<!-- Static reviews to be displayed on website -->
 <div class = "commentsection">
 
 	<body>
@@ -242,19 +242,19 @@
 
 
 
-
+<!-- connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
-// get the post records
+// store form data in local variable 
 @$txtfname = $_REQUEST['firstName'];
 @$txtlname = $_REQUEST['lastName'];
 @$txtemail = $_REQUEST['email'];
 @$txtcomment = $_REQUEST['comment'];
-// database insert SQL code
+// insert form data into DB
 $sql = "INSERT INTO survey  VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtcomment')";
 if($txtfname != "")
 {

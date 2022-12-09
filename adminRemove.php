@@ -1,3 +1,4 @@
+<!-- Create Session -->
 <?php
 session_start();
 if(!isset($_SESSION["username"]))
@@ -133,9 +134,10 @@ if(!isset($_SESSION["username"]))
 	</head>
 
 	<body>
+		<!-- Creates session for "username" -->
 	<?echo $_SESSION["username"];?>
 
- 
+ <!-- Admin nav bar -->
 		<div class="navigation">
 			<a href="adminAdd.php">Add Products</a>
 			<a style="background:white; font-size:23px;color: #18453B;"href="adminRemove.php">Remove Products</a>
@@ -148,7 +150,7 @@ if(!isset($_SESSION["username"]))
 	  <div class="contactmessage">
 	
 		<body>
-	
+	<!-- Form to take in admin data for ID to be removed -->
 		<h3>Contact Form</h3>
 		
 		<fieldset>
@@ -166,7 +168,7 @@ if(!isset($_SESSION["username"]))
     </div>
 
 
-	
+	<!-- Connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
@@ -180,6 +182,7 @@ $sql = "SELECT * FROM products";
         while($row = $result->fetch_assoc())
         {
             ?>
+			<!-- Display products in DB for admin to reference -->
 			<div class="container">
 				<div class = "commentname">
 					<h3>ID Number: <?php echo $row["productID"]?></h3>
@@ -195,10 +198,11 @@ $sql = "SELECT * FROM products";
     }
 
 ?>
+<!-- Request ID number from form and delete cooresponding entry in DB -->
     <?php
 
 	@$idNumber = $_REQUEST["idNumber"];
-	// database insert SQL code
+
 	$sql = "DELETE FROM products WHERE productID = ('$idNumber')";
     
     if(@$idnumber != " ")

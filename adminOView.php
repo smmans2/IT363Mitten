@@ -1,3 +1,4 @@
+<!-- Session Creation -->
 <?php
 session_start();
 if(!isset($_SESSION["username"]))
@@ -142,9 +143,10 @@ if(!isset($_SESSION["username"]))
 	</head>
 
 <body>
+
 <?echo $_SESSION["username"];?>
 
- 
+ <!-- Admin Nav Bar -->
 <div class="navigation">
             <a href="adminAdd.php">Add Products</a>
             <a href="adminRemove.php">Remove Products</a>
@@ -153,6 +155,7 @@ if(!isset($_SESSION["username"]))
             <a style="background:white; font-size:23px;color: #18453B;"href="adminOView.php">View Orders</a>
 			<a style="font-size:23px;color:white;float:right;"href="logout.php">Log Out</a>
       </div>
+<!-- Connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
@@ -166,6 +169,7 @@ $sql = "SELECT * FROM contactinformation";
         while($row = $result->fetch_assoc())
         {
             ?>
+			<!-- Grab entries from DB and display to user -->
 			<div class="container">
 				<div class = "commentname">
 					<h2><?php echo $row["cFirstName"]?> , <?php echo $row["cLastName"]?></h2>

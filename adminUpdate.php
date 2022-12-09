@@ -1,3 +1,4 @@
+<!-- Create session -->
 <?php
 session_start();
 if(!isset($_SESSION["username"]))
@@ -142,7 +143,7 @@ if(!isset($_SESSION["username"]))
 <body>
 <?echo $_SESSION["username"];?>
 
- 
+ <!-- admin nav bar -->
 	<div class="navigation">
 		<a href="adminAdd.php">Add Products</a>
 		<a href="adminRemove.php">Remove Products</a>
@@ -156,7 +157,7 @@ if(!isset($_SESSION["username"]))
 	</div>
 
 
-
+<!-- create form for admin to enter information to update -->
 <div class="formleft">
   <form name = "frmSurvey" method="post" action = "adminUpdate.php">
 	<label for="idNumber">ID number of product to edit</label><br>
@@ -176,7 +177,7 @@ if(!isset($_SESSION["username"]))
 </div>
 	</div>
 	<div class="confirm">
-
+<!-- connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 $path = "\\\practice\\\mittenpics\\\\";
@@ -193,7 +194,7 @@ $sql = "SELECT * FROM products";
         while($row = $result->fetch_assoc())
         {
             ?>
-			
+			<!-- Display all products for user to reference  -->
 			<div class="prodCont">
 				<div class = "commentname">
 					<h3>ID Number: <?php echo $row["productID"]?></h3>

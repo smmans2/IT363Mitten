@@ -122,7 +122,7 @@
 
 <body>
 
- 
+ <!-- User side nav bar -->
        <div class="navigation">
             <a class="active" href="homepage.php">Home</a>
             <a href="Contact.php"style="background:white; font-size:23px;color: #18453B;">Contact Us</a>
@@ -130,7 +130,7 @@
             <a href="Review.php">Reviews</a>
 	</div>
 
-	  
+	  <!-- Display page header and form for order/contact informtion to be entered -->
 	  <div class="contactmessage">
 
 		<body>
@@ -167,20 +167,21 @@
 			</form>
 			</fieldset>
 	</div>
+	<!-- connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
-// get the post records
+// store form information in local variable 
 @$txtfname = $_REQUEST['fname'];
 @$txtlname = $_REQUEST['lname'];
 @$txtemail = $_REQUEST['email'];
 @$txtpnumber = $_REQUEST['pnumber'];
 @$txtservices = $_REQUEST['services'];
 @$txtsubject = $_REQUEST['subject'];
-// database insert SQL code
+// Enter form data into DB
 $sql = "INSERT INTO contactinformation VALUES ('$txtfname', '$txtlname', '$txtemail', '$txtpnumber', '$txtservices', '$txtsubject')";
 if($txtfname != "")
 {

@@ -147,6 +147,7 @@
 	</head>
 
 <body>
+	<!-- user side nav bar -->
 		<div class="navigation">
             <a class="active" href="homepage.php">Home</a>
             <a href="Contact.php">Contact Us</a>
@@ -158,6 +159,7 @@
 			<b> Our Products<b>
 			
 		</div>
+		<!-- connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 $length=0;
@@ -167,15 +169,6 @@ if (mysqli_connect_errno())
     echo "Connection Error" . mysqli_connect_error();
 }
 
-$tableSize = "SELECT * FROM products";
-$tableResult = mysqli_query($conn,$tableSize);
-if($tableResult->num_rows > 0)
-{
-	while($tableRow = $tableResult->fetch_assoc())
-	{
-		$length++;
-	}
-}
 $count=0;
 $sql = "SELECT * FROM products";
 $result = mysqli_query($conn,$sql);

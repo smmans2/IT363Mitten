@@ -1,3 +1,4 @@
+<!-- Create session -->
 <?php
 session_start();
 if(!isset($_SESSION["username"]))
@@ -137,7 +138,7 @@ if(!isset($_SESSION["username"]))
 <body>
 <?echo $_SESSION["username"];?>
 
- 
+ <!-- admin nav bar -->
 <div class="navigation">
             <a href="adminAdd.php">Add Products</a>
             <a href="adminRemove.php">Remove Products</a>
@@ -146,6 +147,7 @@ if(!isset($_SESSION["username"]))
             <a href="adminOView.php">View Orders</a>
 			<a style="font-size:23px;color:white;float:right;"href="logout.php">Log Out</a>
       </div>
+	  <!-- Connect to DB -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 if (mysqli_connect_errno())
@@ -159,6 +161,7 @@ $sql = "SELECT * FROM survey";
         while($row = $result->fetch_assoc())
         {
             ?>
+			<!-- Get entries from DB and display to user -->
 			<div class="container">
 				<div class = "commentname">
 					<h2><?php echo $row["sFirstName"]?> , <?php echo $row["sLastName"]?></h2>

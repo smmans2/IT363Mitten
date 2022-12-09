@@ -106,9 +106,10 @@ if(!isset($_SESSION["username"]))
 	</head>
 
 <body>
+	<!-- Create session -->
 <?echo $_SESSION["username"];?>
 
- 
+ <!-- Admin Nav bar -->
 	<div class="navigation">
 		<a style="background:white; font-size:23px;color: #18453B;" href="adminAdd.php">Add Products</a>
 		<a href="adminRemove.php">Remove Products</a>
@@ -125,6 +126,7 @@ if(!isset($_SESSION["username"]))
 	<h3>Contact Form</h3>
 	
 	<fieldset>
+		<!-- Form to tak in product data -->
 	<div class="container">
 		<form name = "addprod" method="post" action="adminadd.php">
 			<label for="idNumber">ID Number</label><br>
@@ -144,6 +146,7 @@ if(!isset($_SESSION["username"]))
 		</form>
 		</fieldset>
 </div>
+<!-- Connection to database -->
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin","mitten");
 $path = "\\\practice\\\mittenpics\\\\";
@@ -153,12 +156,12 @@ if (mysqli_connect_errno())
 {
     echo "Connection Error" . mysqli_connect_error();
 }
-// get the post records
+//Get form data
 @$idNumber = $_REQUEST["idNumber"];
 @$prodPic = $path.$image;
 @$prodName = $_REQUEST['prodName'];
 @$prodPrice = $_REQUEST['prodPrice'];
-// database insert SQL code
+// Insert form data into database
 $sql = "INSERT INTO products VALUES ('$idNumber', '$prodPic', '$prodName', '$prodPrice')";
 if($idNumber != "")
 {
